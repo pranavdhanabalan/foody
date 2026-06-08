@@ -1,4 +1,4 @@
-package com.pranavd.foody;
+package com.pranavd.foody.Utils;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
