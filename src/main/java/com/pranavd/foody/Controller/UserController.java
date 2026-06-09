@@ -1,5 +1,5 @@
 package com.pranavd.foody.Controller;
 
-public class CustomerController {
+public class UserController {
 
 }
