@@ -12,7 +12,7 @@ public class MenuItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long itemId;
 
     @NotBlank
     @Column(nullable = false, length = 100)
@@ -23,12 +23,12 @@ public class MenuItem {
     @Column(nullable = false)
     private BigDecimal dishPrice;
 
-    public Long getId() {
-        return id;
+    public Long getItemId() {
+        return itemId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setItemId(Long itemId) {
+        this.itemId = itemId;
     }
 
     public String getDishName() {
