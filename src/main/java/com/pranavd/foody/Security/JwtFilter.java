@@ -1,4 +1,5 @@
 package com.pranavd.foody.Security;
 
-public class JwtFilter {
+public class JwtFilter{
+
 }

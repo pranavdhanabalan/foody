@@ -23,6 +23,17 @@ public class MenuItem {
     @Column(nullable = false)
     private BigDecimal dishPrice;
 
+    @Column(nullable = false, columnDefinition = "boolean default true")
+    private boolean isAvailable = true;
+
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+
+    public void setAvailable(boolean available) {
+        isAvailable = available;
+    }
+
     public Long getItemId() {
         return itemId;
     }

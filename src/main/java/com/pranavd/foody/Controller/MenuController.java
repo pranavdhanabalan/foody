@@ -1,9 +1,36 @@
 package com.pranavd.foody.Controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.pranavd.foody.Model.MenuItem;
+import com.pranavd.foody.Service.MenuService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("menu")
+@RequestMapping("/menu")
 public class MenuController {
+
+    @Autowired
+    private MenuService menuService;
+
+    @GetMapping("/get")
+    public List<MenuItem> getAllItems(){
+        return  menuService.getAllMenuItems();
+    }
+
+    @PostMapping("/add")
+    public MenuItem createIem(@RequestBody MenuItem menuItem) {
+        return menuService.createMenuItem(menuItem);
+    }
+
+    @PutMapping("/availability/{itemId}")
+    public MenuItem updateItem(@PathVariable Long itemId){
+        return menuService.itemAvailability(itemId);
+    }
+
+    @DeleteMapping("/delete/{itemId}")
+    public MenuItem deleteMenuItem(@PathVariable Long itemId){
+        return menuService.deleteItem(itemId);
+    }
 }
