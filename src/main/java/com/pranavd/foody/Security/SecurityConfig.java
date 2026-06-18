@@ -3,21 +3,42 @@ package com.pranavd.foody.Security;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.LogoutConfigurer;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
+@EnableWebSecurity
 public class SecurityConfig {
 
     @Bean
-    SecurityFilterChain springSecurity(HttpSecurity http) throws Exception {
+    SecurityFilterChain securityFilterChain(HttpSecurity http) {
+
         http
-                .csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(auth -> auth
-                        .anyRequest().permitAll()
-                );
+                .authorizeHttpRequests((requests) -> requests
+                        .requestMatchers("/", "/home").permitAll()
+                        .anyRequest().authenticated()
+                )
+                .formLogin((form) -> form
+                        .loginPage("/auth/**")
+                        .permitAll()
+                )
+                .logout(LogoutConfigurer::permitAll);
 
         return http.build();
     }
 
+    @Bean
+    PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    UserDetailsService userDetailsService(PasswordEncoder encoder) {
+        String password = encoder.encode("password");
+        UserDetails user = User.withUsername("user").password(password).roles("USER").build();
+        return new InMemoryUserDetailsManager(user);
+    }
+
 }
- */
+*/

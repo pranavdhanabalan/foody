@@ -11,7 +11,7 @@ import java.util.List;
 public class Order {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long orderId;
 
     @Column(nullable = false)
@@ -30,6 +30,12 @@ public class Order {
     @ManyToOne
     @JoinColumn(name="user_id")
     private User user;
+
+    @PrePersist
+    public void setOrderDateTime() {
+        this.orderDate = LocalDate.now();
+        this.orderTime = LocalTime.now();
+    }
 
     public Long getOrderId() {
         return orderId;

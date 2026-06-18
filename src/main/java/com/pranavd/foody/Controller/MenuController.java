@@ -15,12 +15,12 @@ public class MenuController {
     private MenuService menuService;
 
     @GetMapping("/get")
-    public List<MenuItem> getAllItems(){
+    public List<MenuItem> getAllMenuItems(){
         return  menuService.getAllMenuItems();
     }
 
     @PostMapping("/add")
-    public MenuItem createIem(@RequestBody MenuItem menuItem) {
+    public MenuItem createMenuItem(@RequestBody MenuItem menuItem) {
         return menuService.createMenuItem(menuItem);
     }
 
@@ -31,6 +31,6 @@ public class MenuController {
 
     @DeleteMapping("/delete/{itemId}")
     public MenuItem deleteMenuItem(@PathVariable Long itemId){
-        return menuService.deleteItem(itemId);
+        return menuService.deleteMenuItem(itemId);
     }
 }
