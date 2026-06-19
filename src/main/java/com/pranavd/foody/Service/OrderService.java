@@ -32,7 +32,7 @@ public class OrderService  {
     @Autowired
     private MenuItemRepository menuItemRepository;
 
-    public OrderResponseDTO placeOrder(Long userId, OrderRequestDTO request){
+    public void placeOrder(Long userId, OrderRequestDTO request){
 
         User user=userRepository.findById(userId)
                 .orElseThrow(() ->new RuntimeException("User Not Found"));
@@ -68,7 +68,6 @@ public class OrderService  {
             orderItemRepository.save(orderItem);
         }
 
-        return buildOrderResponse(savedOrder, orderItems);
     }
 }
 
