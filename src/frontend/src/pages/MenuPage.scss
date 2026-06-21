@@ -1,0 +1,23 @@
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-page{
+  width: 100%;
+  min-height: 100vh;
+  background-color: #B89BCE;
+  padding-top: 120px;
+
+  .dish-grid{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+  }
+
+}

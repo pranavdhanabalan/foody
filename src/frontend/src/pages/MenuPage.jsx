@@ -1,4 +1,5 @@
 import DishCard from '../components/DishCard.jsx';
+import './MenuPage.scss';
 import {useEffect, useState} from "react";
 
 function MenuPage(){
@@ -17,12 +18,22 @@ function MenuPage(){
 
     return (
         <div className="menu-page">
-            {dishes.map(item => (
-                <DishCard
-                    key={item.itemId}
-                    dish={item}
-                />
-            ))}
+            <div className="dish-grid">
+                <div>
+
+                </div>
+                <div>
+                    {dishes.map(item => (
+                        <DishCard
+                            key={item.itemId}
+                            dish={item}
+                        />
+                    ))}
+                </div>
+                <div>
+                    
+                </div>
+            </div>
         </div>
     );
 }

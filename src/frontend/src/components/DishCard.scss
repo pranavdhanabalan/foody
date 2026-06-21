@@ -1,0 +1,37 @@
+.dish-card{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 24px;
+  margin-bottom: 20px;
+
+  background-color: #FDF2D9;
+  border-radius: 12px;
+
+  border: 2px solid #354293;
+
+  box-shadow: 2px 2px 0 #354293;
+
+  height: 150px;
+  .dish-name,.dish-price{
+    text-align: left;
+    color: #354293;
+    font-weight: bold;
+  }
+
+  .add-to-cart-button{
+    align-items: center;
+    width: 120px;
+    height: 45px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #354293;
+    color: #FDF2D9;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+}
