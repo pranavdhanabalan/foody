@@ -1,14 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
 html,
 body,
 #root {
-  width: 100%;
-  min-height: 100vh;
   margin: 0;
   padding: 0;
+  width: 100%;
+  overflow-x: hidden;
 }
-
 .home-page{
   width: 100%;
-  min-height: 100vh;
-  background-color: #B89BCE;
+  position: relative;
+  overflow-x: hidden;
+  padding-top: 120px;
+  padding-bottom: 100px;
+  .dish-image{
+    width: 90%;
+    height: auto;
+    justify-self: center;
+    display: block;
+  }
+  .ticker {
+    width: 100%;
+    margin-top: -95px;
+    overflow: hidden;
+    background: #EDD263;
+    white-space: nowrap;
+    padding: 15px 0;
+    transform: skewY(-6deg);
+  }
+
+  .ticker-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 15s linear infinite;
+  }
+
+  .ticker-track span {
+    font-family: 'Luckiest Guy', cursive;
+    flex-shrink: 0;
+    padding-right: 50px;
+    font-weight: 700;
+    color: #354293;
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0%);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .about-section {
+    text-align: center;
+    padding: 8rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .about-section h2 {
+    font-family: 'Luckiest Guy', cursive;
+    color: #354293;
+    font-size: 5rem;
+    line-height: 0.9;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  .about-section p {
+    color: #354293;
+    font-size: 1.6rem;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+  }
+
 }

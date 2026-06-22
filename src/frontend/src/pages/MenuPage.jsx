@@ -19,20 +19,12 @@ function MenuPage(){
     return (
         <div className="menu-page">
             <div className="dish-grid">
-                <div>
-
-                </div>
-                <div>
                     {dishes.map(item => (
                         <DishCard
                             key={item.itemId}
                             dish={item}
                         />
                     ))}
-                </div>
-                <div>
-                    
-                </div>
             </div>
         </div>
     );

@@ -5,19 +5,27 @@ body,
   min-height: 100vh;
   margin: 0;
   padding: 0;
+  background: #FFF7E6;
 }
-
 .menu-page{
   width: 100%;
   min-height: 100vh;
-  background-color: #B89BCE;
+  background-color: #FFF7E6;
   padding-top: 120px;
+  padding-bottom: 40px;
 
   .dish-grid{
+    width: 100%;
+    max-width: 1300px;
+    margin: 40px auto;
+    padding: 0 20px;
+
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
+
+    justify-content: center;
+
   }
 
 }

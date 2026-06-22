@@ -1,5 +1,6 @@
 package com.pranavd.foody.Security;
-/*
+
+import com.pranavd.foody.Model.User;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -12,22 +13,19 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
     @Bean
-    SecurityFilterChain securityFilterChain(HttpSecurity http) {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
+                .csrf(csrf->csrf.disable())
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/", "/home").permitAll()
-                        .anyRequest().authenticated()
-                )
-                .formLogin((form) -> form
-                        .loginPage("/auth/**")
-                        .permitAll()
+                        .anyRequest().permitAll()
+
                 )
                 .logout(LogoutConfigurer::permitAll);
 
         return http.build();
     }
-
+/*
     @Bean
     PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -39,6 +37,6 @@ public class SecurityConfig {
         UserDetails user = User.withUsername("user").password(password).roles("USER").build();
         return new InMemoryUserDetailsManager(user);
     }
+ */
 
 }
-*/

@@ -1,37 +1,47 @@
 .dish-card{
-  display: grid;
-  grid-template-columns: 3fr 1fr;
+  background: #fdf9ec;
+  border: 2px solid #2f3eb3;
+  border-radius: 25px;
+  width: 100%;
+  max-width: 340px;
+  height: 260px;
+  margin: 0 auto;
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  box-shadow:
+          0 8px 20px rgba(47, 62, 179, 0.25),
+          4px 8px 0 #2f3eb3;
 
-  padding: 24px;
-  margin-bottom: 20px;
-
-  background-color: #FDF2D9;
-  border-radius: 12px;
-
-  border: 2px solid #354293;
-
-  box-shadow: 2px 2px 0 #354293;
-
-  height: 150px;
-  .dish-name,.dish-price{
+  .dish-name{
+    font-size: 2.75rem;
+    font-weight: 700;
     text-align: left;
-    color: #354293;
-    font-weight: bold;
+    line-height: 1.4;
+    color: #2f3eb3;
+    margin: 0;
+    overflow-wrap: break-word;
   }
-
-  .add-to-cart-button{
+  .card-footer{
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    width: 120px;
-    height: 45px;
-
+  }
+  .dish-price{
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2f3eb3;
+  }
+  .add-to-cart-button{
+    padding: 12px 25px;
     border: none;
-    border-radius: 10px;
-
-    background: #354293;
-    color: #FDF2D9;
+    border-radius: 12px;
+    background: #2f3eb3;
+    color: white;
     font-size: 1.2rem;
-    font-weight: bold;
+    font-weight: 600;
+    cursor: pointer;
   }
 }
