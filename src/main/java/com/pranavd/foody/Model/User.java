@@ -2,11 +2,13 @@ package com.pranavd.foody.Model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import lombok.Builder;
 
 import java.util.List;
 
 @Entity
 @Table(name="app_user")
+@Builder
 public class User {
 
     @Id
