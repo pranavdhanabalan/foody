@@ -1,4 +1,3 @@
-
 import './HomePage.scss';
 import img from '../assets/img.png';
 

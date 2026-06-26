@@ -4,9 +4,7 @@ import com.pranavd.foody.Model.User;
 import com.pranavd.foody.Repository.UserRepository;
 import com.pranavd.foody.Security.JwtUtil;
 import com.pranavd.foody.Service.AuthService;
-import lombok.Builder;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -25,19 +23,19 @@ public class AuthController {
     private final PasswordEncoder passwordEncoder;
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody Map<String,String> body){
+    public ResponseEntity<Map<String,String>> login(@RequestBody Map<String,String> body){
         String email=body.get("email");
         String password=body.get("password");
 
         var userOpt=userRepository.findByuserEmail(email);
 
         if (userOpt.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid email");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("message","Invalid email"));
         }
 
         var user = userOpt.get();
         if (!passwordEncoder.matches(password, user.getUserPassword())) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid email or password");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("message","Invalid email or password"));
         }
 
         String token = jwtUtil.generateToken(email);
